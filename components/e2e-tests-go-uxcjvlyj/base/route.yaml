@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: e2e-tests-go-uxcjvlyj
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: e2e-tests-go-uxcjvlyj 
+  name: e2e-tests-go-uxcjvlyj
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: e2e-tests-go-uxcjvlyj
+    weight: 100 
